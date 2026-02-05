@@ -53,7 +53,7 @@ print("Resultado del area es: ", area_usuario)
 
 nombre = input("Ingrese su nombre: ")
 apellido = input("Ingrese su apellido: ")
-pais = (input("Ingrese su pais: ")
+pais = input("Ingrese su pais: ")
 edad = int(input("Ingrese su edad: "))
 
 
