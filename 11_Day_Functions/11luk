@@ -1,0 +1,228 @@
+"""Declare a function add_two_numbers. It takes two parameters and it returns a sum.
+Area of a circle is calculated as follows: area = π x r x r. Write a function that calculates area_of_circle.
+Write a function called add_all_nums which takes arbitrary number of arguments and sums all the arguments. Check if all the list items are number types. If not do give a reasonable feedback.
+"""
+import math
+
+def add_two_numbers(one_number, two_number):
+    return one_number + two_number
+
+
+def area_of_circle(r):
+    return math.pi * r * r
+radio = 5
+print("El area del círculo es:", area_of_circle(radio))
+
+def add_all_nums(*args):
+    suma = 0
+    for item in args:
+        if isinstance(item, (int, float)):
+            suma += item
+        else:
+            return f"Error: '{item}' no es un número."
+    return suma
+
+print(add_all_nums(1, 2, 3, 4))
+
+"""Temperature in °C can be converted to °F using this formula: °F = (°C x 9/5) + 32. Write a function which converts °C to °F, convert_celsius_to-fahrenheit.
+Write a function called check-season, it takes a month parameter and returns the season: Autumn, Winter, Spring or Summer.
+Write a function called calculate_slope which return the slope of a linear equation
+"""
+
+def convert_celsius_to_fahrenheit(c):
+    c = c
+    f = c * 9/5 + 32
+    return f
+print(convert_celsius_to_fahrenheit(29))
+
+def check_season(month):
+    autumn = ["marzo", "abril", "mayo"]
+    winter = ["junio", "julio", "agosto"]
+    spring = ["septiembre", "octubre", "noviembre"]
+    summer = ["diciembre", "enero", "febrero"]
+    if month in autumn:
+        return "Autumn"
+    elif month in winter:
+        return "Winter"
+    elif month in spring:
+        return "Spring"
+    elif month in summer:
+        return "Summer"
+    else:
+        print("Incorrecto")
+print(check_season("noviembre"))
+
+def calculate_slope(x1, y1, x2, y2): 
+    if x1 == x2: 
+        return "Error: la pendiente es indefinida (recta vertical)." 
+    return (y2 - y1) / (x2 - x1)
+
+"""Quadratic equation is calculated as follows: ax² + bx + c = 0. 
+Write a function which calculates solution set of a quadratic equation, solve_quadratic_eqn.
+Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.
+Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops)."""
+
+def solve_quadratic_eqn(a, b, c):
+    discriminant = b**2 - 4*a*c 
+    if discriminant < 0: 
+        return "No hay soluciones reales (las raíces son complejas)." 
+    elif discriminant == 0: 
+        x = -b / (2*a) 
+        return [x] 
+    else: 
+        x1 = (-b + math.sqrt(discriminant)) / (2*a) 
+        x2 = (-b - math.sqrt(discriminant)) / (2*a) 
+        return [x1, x2] 
+    
+
+array = [1, 10, 100, 1000]
+
+def print_list(lista):
+    for elemento in lista:
+        print(elemento)
+print_list(array)
+
+
+def reverse_list(lista):
+    for elemento in reversed(lista):    
+        print(elemento)
+reverse_list(array)
+
+"""Declare a function named capitalize_list_items. It takes a list as a parameter and it returns a capitalized list of items
+Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
+"""
+
+def capitalize_list_items(lista):
+    capitalized = lista.capitalize()
+    return capitalized
+print(capitalize_list_items("hola"))
+
+lista_generica = ["Papa", "Cebolla"]
+
+def add_item(lista, item):
+    lista.append(item)
+    return lista
+print(add_item(lista_generica, "Verdeo"))
+
+# Declare a function named remove_item. It takes a list and an item parameters. It returns a list with the item removed from it.
+
+def remove_item(list, item):
+    list.remove(item)
+    return list
+print(remove_item(lista_generica, "Verdeo"))
+
+# Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
+
+def sum_of_numbers(n):
+    total = 0
+    for i in range(n + 1):
+        total += 1
+    return total
+print(sum_of_numbers(5))
+
+"""Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
+Declare a function named sum_of_even. It takes a number parameter and it adds all the even numbers in that - range.
+"""
+
+def sum_of_odds(n):
+    suma_total = 0 
+    suma_pares = 0 
+    suma_impares = 0 
+    for i in range(n + 1): # recorre desde 0 hasta n 
+        suma_total += i if i % 2 == 0: # si es par suma_pares 
+        += i else: # si es impar suma_impares 
+        += i return suma_total, suma_pares, suma_impares
+
+# Exercises: Level 2 
+# Declare a function named evens_and_odds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
+
+
+def evens_and_odds(n):
+    evens = 0
+    odds = 0
+    for i in range(n + 1):
+        if i % 2 == 0:
+            evens += 1
+        else:
+            odds += 1
+    return evens, odds 
+
+"""Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
+Call your function is_empty, it takes a parameter and it checks if it is empty or not
+Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation).
+Write a function called greet which takes a default argument, name. If no argument is supplied it should print "Hello, Guest!", otherwise it should greet the person by name.
+"""
+
+def factorial(n):
+    if n < 0:
+        return "Error: el factorial no está definido para números negativos."
+    elif n == 0 or n == 1:
+        return 1
+    else:
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+    
+    
+def is_empty(param):
+    if not param:
+        return "Está vacío."
+    else:
+        return "No está vacío."
+
+def greet(name="Guest"):
+    return f"Hello, {name}!"
+print(greet())
+print(greet("Alice"))
+
+# Create a function called show_args to take an arbitrary number of named arguments and print their names and values.
+def show_args(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+show_args(name="Alice", age=30, city="New York")
+
+"""Exercises: Level 3
+Write a function called is_prime, which checks if a number is prime.
+Write a functions which checks if all items are unique in the list.
+Write a function which checks if all the items of the list are of the same data type.
+Write a function which check if provided variable is a valid python variable
+Go to the data folder and access the countries-data.py file.
+Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
+Create a function called the most_populated_countries. It should return 10 or 20 most populated countries in descending order."""
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def are_all_items_unique(lst):
+    return len(lst) == len(set(lst))            
+
+def are_all_items_same_type(lst):
+    if not lst:
+        return True
+    first_type = type(lst[0])
+    return all(isinstance(item, first_type) for item in lst)
+
+def is_valid_variable(name):
+    if not name.isidentifier():
+        return False
+    if name in {"False", "None", "True", "and", "as", "assert", "break", "class", "continue
+
+", "def", "del", "elif", "else", "except", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "nonlocal", "not", "or", "pass", "raise", "return", "try", "while", "with", "yield"}:
+        return False
+    return True
+
+def most_spoken_languages():
+    # Aquí deberías cargar los datos de los países y sus idiomas, luego contar los idiomas más hablados
+    pass
+    
+def most_populated_countries():
+    # Aquí deberías cargar los datos de los países y sus poblaciones, luego contar los países más poblados
+    pass
+    
